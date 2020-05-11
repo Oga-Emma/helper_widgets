@@ -94,11 +94,12 @@ class Validators {
     };
   }
 
-  static String Function(String) validatePass([String error]) {
+  static String Function(String) validatePass(
+      {int minLength = 6, int maxlength = 255}) {
     return (String value) {
       if (value == null || value.isEmpty || value.trim().isEmpty) {
         return 'Password is required';
-      } else if (value.length < 6 || value.length > 255) {
+      } else if (value.length < minLength || value.length > maxlength) {
         return 'Password must be 6-255 characters';
       } else if (!_hasSpecialCharacter(value)) {
         return 'Password must contain atleast one special character';
@@ -107,11 +108,12 @@ class Validators {
     };
   }
 
-  static String Function(String) validatePlainPass([String error]) {
+  static String Function(String) validatePlainPass(
+      {int minLength = 6, int maxlength = 255}) {
     return (String value) {
       if (value == null || value.isEmpty || value.trim().isEmpty) {
         return 'Password is required';
-      } else if (value.length < 6 || value.length > 255) {
+      } else if (value.length < minLength || value.length > maxlength) {
         return 'Password must be 6-255 characters';
       }
       return null;
