@@ -1,6 +1,8 @@
 import 'package:intl/intl.dart';
 
 class StringUtils {
+  static const naira = '₦';
+
   static double parseMoney(var money) {
     if (money == null) {
       return money;
@@ -45,9 +47,16 @@ class StringUtils {
       } else {
         money = double.parse("$amount");
       }
-      return "$currency${formatter.format(money)}${showDecimal ? '.00' : ''}";
+      final decimal = '$money'.substring('$money'.lastIndexOf('.'));
+      if (decimal.isEmpty) {
+        return "$currency${formatter.format(money)}${showDecimal ? '.00' : ''}";
+      }
+
+      final main = '$money'.substring(0, '$money'.lastIndexOf('.'));
+
+      return "$currency${formatter.format(double.parse(main))}$decimal";
     } catch (err) {
-      return "₦$amount";
+      return "$currency$amount";
     }
 
 //    return "₦${formatter.format(amount)}.00";

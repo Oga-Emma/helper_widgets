@@ -15,6 +15,7 @@ dependencies:
   intl:
   image_picker:
   bot_toast:
+  flutter_money_formatter:
 
 dev_dependencies:
   flutter_test:
