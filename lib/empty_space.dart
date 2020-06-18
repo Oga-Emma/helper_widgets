@@ -17,8 +17,8 @@ class EmptySpace extends StatelessWidget {
     }
 
     return SizedBox(
-      height: horizontal ? vhsize : 0,
-      width: horizontal ? 0 : vhsize,
+      height: horizontal ? 0 : vhsize,
+      width: horizontal ? vhsize : 0,
     );
   }
 }
