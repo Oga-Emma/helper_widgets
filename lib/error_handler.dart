@@ -1,12 +1,13 @@
+import 'package:flutter/cupertino.dart';
+
 class ErrorHandler {
-  String getErrorMessage(err) {
-    var message = "Internal Error";
+  String getErrorMessage(err, [String message = "Internal Error"]) {
     try {
       if (err != null && err.message != null && err.message.isNotEmpty) {
         return err.message;
       }
     } catch (err) {
-      print(err);
+      debugPrint(err);
     }
 
     return message;

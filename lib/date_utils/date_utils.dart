@@ -1,3 +1,4 @@
+import 'package:helper_widgets/string_utils/string_utils.dart';
 import 'package:intl/intl.dart';
 
 class DateUtils {
@@ -12,13 +13,19 @@ class DateUtils {
     return dateFormat.format(date);
   }
 
-  static String getFormattedTime(DateTime date) {
+  static String getFormattedTime(DateTime date, [String pattern]) {
+    if (StringUtils.isNotEmpty(pattern))
+      return DateFormat(pattern).format(date);
     return timeFormat.format(date);
   }
 
-  static String getFormatedDateAndTimeFromString(String dateString) {
+  static String getFormatedDateAndTimeFromString(String dateString,
+      [String pattern]) {
     try {
       var date = DateTime.parse(dateString);
+      if (StringUtils.isNotEmpty(pattern))
+        return DateFormat(pattern).format(date);
+
       return "${getFormatedDate(date)}, ${getFormattedTime(date)}";
     } catch (e) {
       print(e);
@@ -26,9 +33,11 @@ class DateUtils {
     }
   }
 
-  static String getFormatedDateFromString(String dateString) {
+  static String getFormatedDateFromString(String dateString, [String pattern]) {
     try {
       var date = DateTime.parse(dateString);
+      if (StringUtils.isNotEmpty(pattern))
+        return DateFormat(pattern).format(date);
       return "${getFormatedDate(date)}";
     } catch (e) {
       print(e);
@@ -36,9 +45,11 @@ class DateUtils {
     }
   }
 
-  static String getFormatedTimeFromString(String dateString) {
+  static String getFormatedTimeFromString(String dateString, [String pattern]) {
     try {
       var date = DateTime.parse(dateString);
+      if (StringUtils.isNotEmpty(pattern))
+        return DateFormat(pattern).format(date);
       return "${getFormattedTime(date)}";
     } catch (e) {
       print(e);
