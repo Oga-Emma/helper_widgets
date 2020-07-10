@@ -114,7 +114,7 @@ class Validators {
       if (value == null || value.isEmpty || value.trim().isEmpty) {
         return 'Password is required';
       } else if (value.length < minLength || value.length > maxlength) {
-        return 'Password must be 6-255 characters';
+        return 'Password must be $minLength-$maxlength characters';
       }
       return null;
     };
