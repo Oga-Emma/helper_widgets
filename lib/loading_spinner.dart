@@ -25,11 +25,15 @@ class LoadingSpinner extends StatelessWidget {
       children: <Widget>[
         SpinKitRing(
           size: 24,
-          color: Theme.of(context).accentColor.withOpacity(.4),
+          color: color ?? Theme.of(context).primaryColor.withOpacity(.4),
           lineWidth: 2.0,
         ),
-        EmptySpace(),
-        Visibility(visible: showText, child: Text('$text'))
+        Visibility(
+            visible: showText,
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              Text('$text'),
+              EmptySpace(),
+            ]))
       ],
     )
         /*SpinKitFadingCube(
