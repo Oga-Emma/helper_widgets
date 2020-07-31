@@ -43,9 +43,9 @@ class StringUtils {
     try {
       double money;
       if (amount is double) {
-        money = amount;
+        money = double.parse(amount.toStringAsFixed(2));
       } else {
-        money = double.parse("$amount");
+        money = double.parse(double.parse("$amount").toStringAsFixed(2));
       }
       final decimal = '$money'.substring('$money'.lastIndexOf('.'));
       if (decimal.isEmpty) {
