@@ -2,28 +2,28 @@ import 'package:flutter/cupertino.dart';
 
 class EmptySpace extends StatelessWidget {
   const EmptySpace(
-      {this.multiple = 1, this.horizontal = false, this.both = false});
+      {this.multiple = 1, this.horizontal = false, this.both = true});
   final multiple;
   final bool horizontal;
   final bool both;
 
-  const EmptySpace.v2({multiple = 2}) : this(multiple: multiple);
+  const EmptySpace.v2({multiple = 2}) : this(multiple: multiple, both: false);
 
-  const EmptySpace.v3({multiple = 3}) : this(multiple: multiple);
+  const EmptySpace.v3({multiple = 3}) : this(multiple: multiple, both: false);
 
-  const EmptySpace.v4({multiple = 4}) : this(multiple: multiple);
+  const EmptySpace.v4({multiple = 4}) : this(multiple: multiple, both: false);
 
   const EmptySpace.horizontal({multiple = 1})
-      : this(multiple: multiple, horizontal: true);
+      : this(multiple: multiple, horizontal: true, both: false);
 
   const EmptySpace.h2({multiple = 2})
-      : this(multiple: multiple, horizontal: true);
+      : this(multiple: multiple, horizontal: true, both: false);
 
   const EmptySpace.h3({multiple = 3})
-      : this(multiple: multiple, horizontal: true);
+      : this(multiple: multiple, horizontal: true, both: false);
 
   const EmptySpace.h4({multiple = 4})
-      : this(multiple: multiple, horizontal: true);
+      : this(multiple: multiple, horizontal: true, both: false);
 
   const EmptySpace.all({multiple = 1}) : this(multiple: multiple, both: true);
 
