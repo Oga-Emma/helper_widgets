@@ -11,7 +11,7 @@ class StringUtils {
       return money;
     }
 
-    return double.parse("$money");
+    return double.tryParse("$money");
   }
 
   static int parseInt(var money) {
@@ -25,16 +25,21 @@ class StringUtils {
       return money;
     }
 
-    return int.parse("$money");
+    return int.tryParse("$money");
   }
 
   static String toTitleCase(String sentence) {
-    var split = sentence.trim().split(' ');
+    try {
+      var split = sentence.trim().split(' ');
 
-    return split
-        .map((word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
-        .toList()
-        .join(" ");
+      return split
+          .map(
+              (word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
+          .toList()
+          .join(" ");
+    } catch (err) {
+      return sentence;
+    }
   }
 
   static var formatter = new NumberFormat("#,###");
@@ -63,28 +68,36 @@ class StringUtils {
   }
 
   static String getInitials(String name) {
-    var initial;
-    var split = "$name".trim().split(' ');
+    try {
+      var initial;
+      var split = "$name".trim().split(' ');
 
-    if (split.length > 1) {
-      var i1 = split[0][0];
-      var i2 = split[1][0] == '&' ? split[2][0] : split[1][0];
-      initial = '$i1$i2';
-    } else {
-      initial = "$name".substring(0, 2);
+      if (split.length > 1) {
+        var i1 = split[0][0];
+        var i2 = split[1][0] == '&' ? split[2][0] : split[1][0];
+        initial = '$i1$i2';
+      } else {
+        initial = "$name".substring(0, 2);
+      }
+
+      return initial.toUpperCase();
+    } catch (err) {
+      return name;
     }
-
-    return initial.toUpperCase();
   }
 
   static capitalizeFirst(String text) {
-    var split = text.trim().split(' ');
-    var newList = split
-        .map((st) =>
-            "${st[0].toUpperCase()}${st.substring(1, st.length).toLowerCase()}")
-        .toList();
+    try {
+      var split = text.trim().split(' ');
+      var newList = split
+          .map((st) =>
+              "${st[0].toUpperCase()}${st.substring(1, st.length).toLowerCase()}")
+          .toList();
 
-    return newList.join(' ');
+      return newList.join(' ');
+    } catch (err) {
+      return text;
+    }
   }
 
   static isNotEmpty(String text) {
