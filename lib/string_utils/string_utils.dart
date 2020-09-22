@@ -29,7 +29,7 @@ class StringUtils {
   }
 
   static String toTitleCase(String sentence) {
-    var split = sentence.split(' ');
+    var split = sentence.trim().split(' ');
 
     return split
         .map((word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
@@ -64,7 +64,7 @@ class StringUtils {
 
   static String getInitials(String name) {
     var initial;
-    var split = "$name".split(' ');
+    var split = "$name".trim().split(' ');
 
     if (split.length > 1) {
       var i1 = split[0][0];
@@ -78,7 +78,7 @@ class StringUtils {
   }
 
   static capitalizeFirst(String text) {
-    var split = text.split(' ');
+    var split = text.trim().split(' ');
     var newList = split
         .map((st) =>
             "${st[0].toUpperCase()}${st.substring(1, st.length).toLowerCase()}")
