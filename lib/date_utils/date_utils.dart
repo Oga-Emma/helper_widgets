@@ -22,7 +22,7 @@ class DateUtils {
   static String getFormatedDateAndTimeFromString(String dateString,
       [String pattern]) {
     try {
-      var date = DateTime.parse(dateString);
+      var date = DateTime.parse(dateString).toLocal();
       if (StringUtils.isNotEmpty(pattern))
         return DateFormat(pattern).format(date);
 
@@ -35,7 +35,7 @@ class DateUtils {
 
   static String getFormatedDateFromString(String dateString, [String pattern]) {
     try {
-      var date = DateTime.parse(dateString);
+      var date = DateTime.parse(dateString).toLocal();
       if (StringUtils.isNotEmpty(pattern))
         return DateFormat(pattern).format(date);
       return "${getFormatedDate(date)}";
@@ -47,7 +47,7 @@ class DateUtils {
 
   static String getFormatedTimeFromString(String dateString, [String pattern]) {
     try {
-      var date = DateTime.parse(dateString);
+      var date = DateTime.parse(dateString).toLocal();
       if (StringUtils.isNotEmpty(pattern))
         return DateFormat(pattern).format(date);
       return "${getFormattedTime(date)}";
@@ -55,5 +55,9 @@ class DateUtils {
       print(e);
       return dateString;
     }
+  }
+
+  static DateTime tryParseLocale(dateString, [String pattern]) {
+    return DateTime.parse(dateString).toLocal();
   }
 }
