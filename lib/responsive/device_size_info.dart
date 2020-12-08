@@ -12,6 +12,14 @@ class DeviceSizeInformation {
   double get screenHeight => _screenHeight;
   Orientation get orientation => _orientation;
 
+  bool get isGreaterThanMedium => screenWidth > mdSize;
+  bool get isGreaterThanSmall => screenWidth > smSize;
+  bool get isGreaterThanXSmall => screenWidth > xSmSize;
+
+  bool get isLessThanMedium => screenWidth < mdSize;
+  bool get isLessThanSmall => screenWidth < smSize;
+  bool get isLessThanXSmall => screenWidth < xSmSize;
+
   double get percentWidth => screenWidth / 100;
   double get percentHeight => screenHeight / 100;
   double get safePercentWidth => (screenWidth - _safeAreaHorizontal) / 100;
