@@ -29,7 +29,7 @@ class DeviceSizeInformation {
 
   final xSmSize = 480;
   final smSize = 680;
-  final sMdSize = 800;
+  final sMdSize = 900;
   final mdSize = 1200;
   final lgSize = 1600;
 
