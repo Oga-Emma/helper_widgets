@@ -13,10 +13,12 @@ class DeviceSizeInformation {
   Orientation get orientation => _orientation;
 
   bool get isGreaterThanMedium => screenWidth > mdSize;
+  bool get isGreaterThanSemiMedium => screenWidth > sMdSize;
   bool get isGreaterThanSmall => screenWidth > smSize;
   bool get isGreaterThanXSmall => screenWidth > xSmSize;
 
   bool get isLessThanMedium => screenWidth < mdSize;
+  bool get isLessSemiMedium => screenWidth < sMdSize;
   bool get isLessThanSmall => screenWidth < smSize;
   bool get isLessThanXSmall => screenWidth < xSmSize;
 
@@ -27,7 +29,8 @@ class DeviceSizeInformation {
 
   final xSmSize = 480;
   final smSize = 680;
-  final mdSize = 1000;
+  final sMdSize = 800;
+  final mdSize = 1200;
   final lgSize = 1600;
 
   bool get isXSmallScreen => screenWidth <= xSmSize;
