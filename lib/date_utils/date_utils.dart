@@ -61,3 +61,60 @@ class DateUtils {
     return DateTime.parse(dateString).toLocal();
   }
 }
+
+var dateFormat = DateFormat("dd MMM, yyyy");
+var timeFormat = DateFormat("h:mm a");
+String getFormatedDate(DateTime date) {
+  if (date.day == DateTime.now().day) {
+    return "Today";
+  } else if (date.day == (DateTime.now().day - 1)) {
+    return "Yesterday";
+  }
+  return dateFormat.format(date);
+}
+
+String getFormattedTime(DateTime date, [String pattern]) {
+  if (StringUtils.isNotEmpty(pattern)) return DateFormat(pattern).format(date);
+  return timeFormat.format(date);
+}
+
+String getFormatedDateAndTimeFromString(String dateString, [String pattern]) {
+  try {
+    var date = DateTime.parse(dateString).toLocal();
+    if (StringUtils.isNotEmpty(pattern))
+      return DateFormat(pattern).format(date);
+
+    return "${getFormatedDate(date)}, ${getFormattedTime(date)}";
+  } catch (e) {
+    print(e);
+    return dateString;
+  }
+}
+
+String getFormatedDateFromString(String dateString, [String pattern]) {
+  try {
+    var date = DateTime.parse(dateString).toLocal();
+    if (StringUtils.isNotEmpty(pattern))
+      return DateFormat(pattern).format(date);
+    return "${getFormatedDate(date)}";
+  } catch (e) {
+    print(e);
+    return dateString;
+  }
+}
+
+String getFormatedTimeFromString(String dateString, [String pattern]) {
+  try {
+    var date = DateTime.parse(dateString).toLocal();
+    if (StringUtils.isNotEmpty(pattern))
+      return DateFormat(pattern).format(date);
+    return "${getFormattedTime(date)}";
+  } catch (e) {
+    print(e);
+    return dateString;
+  }
+}
+
+DateTime tryParseLocale(dateString, [String pattern]) {
+  return DateTime.parse(dateString).toLocal();
+}
