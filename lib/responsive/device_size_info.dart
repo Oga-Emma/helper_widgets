@@ -39,15 +39,16 @@ class DeviceSizeInformation {
   bool get isLargeScreen => screenWidth >= mdSize && screenWidth <= lgSize;
   bool get isExtraLargeScreen => screenWidth > lgSize;
 
-  DeviceSizeInformation(BuildContext context) {
+  BoxConstraints constraint;
+  DeviceSizeInformation(BuildContext context, {this.constraint}) {
     final mediaQuery = MediaQuery.of(context);
 
     this._safeAreaHorizontal =
         mediaQuery.padding.left + mediaQuery.padding.right;
     this._safeAreaVertical = mediaQuery.padding.top + mediaQuery.padding.bottom;
 
-    this._screenWidth = mediaQuery.size.width;
-    this._screenHeight = mediaQuery.size.height;
+    this._screenWidth = constraint.maxWidth;
+    this._screenHeight = constraint.maxHeight;
     this._orientation = mediaQuery.orientation;
   }
 }

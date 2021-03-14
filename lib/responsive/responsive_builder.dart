@@ -11,8 +11,12 @@ class ResponsiveBuilder extends StatelessWidget {
       builder;
   @override
   Widget build(BuildContext context) {
-    DeviceSizeInformation deviceSizeInfo = DeviceSizeInformation(context);
-    return Builder(
-        key: key, builder: (context) => builder(context, deviceSizeInfo));
+    return LayoutBuilder(
+        key: key,
+        builder: (context, constraint) {
+          DeviceSizeInformation deviceSizeInfo =
+              DeviceSizeInformation(context, constraint: constraint);
+          return builder(context, deviceSizeInfo);
+        });
   }
 }
