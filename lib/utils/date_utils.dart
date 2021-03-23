@@ -1,4 +1,4 @@
-import 'package:helper_widgets/string_utils/string_utils.dart';
+import 'package:helper_widgets/utils/string_utils.dart';
 import 'package:intl/intl.dart';
 
 class DateHelper {
