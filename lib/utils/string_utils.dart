@@ -181,51 +181,24 @@ String formatMoney(var amount, {bool showDecimal = true, var currency = '₦'}) 
 //    return "₦${formatter.format(amount)}.00";
 }
 
-String getInitials(String name) {
-  try {
-    var initial;
-    var split = "$name".trim().split(' ');
-
-    if (split.length > 1) {
-      var i1 = split[0][0];
-      var i2 = split[1][0] == '&' ? split[2][0] : split[1][0];
-      initial = '$i1$i2';
-    } else {
-      initial = "$name".substring(0, 2);
-    }
-
-    return initial.toUpperCase();
-  } catch (err) {
-    return name;
-  }
-}
-
-capitalizeFirst(String text) {
-  try {
-    var split = text.trim().split(' ');
-    var newList = split
-        .map((st) =>
-            "${st[0].toUpperCase()}${st.substring(1, st.length).toLowerCase()}")
-        .toList();
-
-    return newList.join(' ');
-  } catch (err) {
-    return text;
-  }
-}
-
-isNotEmpty(String text) {
-  return text != null && text.isNotEmpty;
-}
-
-isEmpty(String text) {
-  return !isNotEmpty(text);
-}
-
-isEqualsIgnoreCase(String t1, String t2) {
-  if (t1 == null || t2 == null || t1.isEmpty || t2.isEmpty) {
-    return false;
+extension strUtilExt on String {
+  String getInitials() {
+    return StringUtils.getInitials(this);
   }
 
-  return t1.toLowerCase() == t2.toLowerCase();
+  capitalizeFirst() {
+    return StringUtils.capitalizeFirst(this);
+  }
+
+  isNotEmpty() {
+    return StringUtils.isNotEmpty(this);
+  }
+
+  isEmpty() {
+    return StringUtils.isEmpty(this);
+  }
+
+  isEqualsIgnoreCase(String t2) {
+    return StringUtils.isEqualsIgnoreCase(this, t2);
+  }
 }
