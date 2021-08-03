@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:helper_widgets/empty_space.dart';
 
-Future<ImageFrom> showChooserDialog(BuildContext context) async {
+Future<ImageFrom?> showChooserDialog(BuildContext context) async {
   if (Platform.isIOS) {
     return showCupertinoDialog(
         context: context,

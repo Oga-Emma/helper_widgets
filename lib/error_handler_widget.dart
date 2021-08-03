@@ -5,10 +5,10 @@ import 'empty_space.dart';
 
 class ErrorHandlerWidget extends StatelessWidget {
   ErrorHandlerWidget(
-      {this.message = "Error fetching data", this.color, this.onPress});
+      {this.message = "Faild to load", this.color, this.onPress});
   String message;
-  Color color;
-  Function() onPress;
+  Color? color;
+  Function()? onPress;
 
   @override
   Widget build(BuildContext context) {

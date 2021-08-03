@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class UILoadingSnackBar extends SnackBar {
-  UILoadingSnackBar(BuildContext context, {Key key, Widget content})
+  UILoadingSnackBar(BuildContext context, {Key? key, Widget? content})
       : super(
           key: key,
           backgroundColor:
@@ -27,7 +27,7 @@ class UILoadingSnackBar extends SnackBar {
                   : Expanded(
                       child: DefaultTextStyle(
 //                        style: mkFontColor(Colors.white),
-                        child: content, style: null,
+                        child: content, style: TextStyle(),
                       ),
                     ),
             ],

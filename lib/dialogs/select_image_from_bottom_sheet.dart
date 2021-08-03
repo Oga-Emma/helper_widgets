@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:helper_widgets/dialogs/select_image_from_dialog.dart';
 import 'package:helper_widgets/empty_space.dart';
 
-Future<ImageFrom> showChooserDialog(BuildContext context,
-    {Function() onClosing}) async {
+Future<ImageFrom?> showChooserDialog(BuildContext context,
+    {Function()? onClosing}) async {
   if (Platform.isIOS) {
     return showModalBottomSheet(
         context: context,
@@ -59,7 +59,7 @@ Future<ImageFrom> showChooserDialog(BuildContext context,
                   ],
                 );
               },
-              onClosing: onClosing,
+              onClosing: onClosing!,
             ));
   }
 }

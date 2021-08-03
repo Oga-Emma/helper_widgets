@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HideKeyboardWidget extends StatelessWidget {
-  HideKeyboardWidget({this.child}) : assert(child != null);
+  HideKeyboardWidget({required this.child}) : assert(child != null);
   Widget child;
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class HideKeyboardWidget extends StatelessWidget {
 }
 
 hideKeyboard(BuildContext context) {
-  if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0) {
+  if (WidgetsBinding.instance!.window.viewInsets.bottom > 0.0) {
     FocusScopeNode currentFocus = FocusScope.of(context);
 
     if (!currentFocus.hasPrimaryFocus) {

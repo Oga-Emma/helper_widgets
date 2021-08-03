@@ -5,7 +5,7 @@ class DateHelper {
   static var dateFormat = DateFormat("dd MMM, yyyy");
   static var timeFormat = DateFormat("h:mm a");
   static String getFormatedDate(DateTime date,
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     if (localize) {
       date = date.toLocal();
     }
@@ -20,7 +20,7 @@ class DateHelper {
   }
 
   static String getFormattedTime(DateTime date,
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     if (localize) {
       date = date.toLocal();
     }
@@ -30,7 +30,7 @@ class DateHelper {
   }
 
   static String getFormatedDateAndTimeFromString(String dateString,
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     try {
       var date = DateTime.parse(dateString);
 
@@ -48,7 +48,7 @@ class DateHelper {
   }
 
   static String getFormatedDateFromString(String dateString,
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     try {
       var date = DateTime.parse(dateString);
       if (localize) {
@@ -64,7 +64,7 @@ class DateHelper {
   }
 
   static String getFormatedTimeFromString(String dateString,
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     try {
       var date = DateTime.parse(dateString);
       if (localize) {
@@ -79,50 +79,50 @@ class DateHelper {
     }
   }
 
-  static DateTime tryParseLocale(dateString, [String pattern]) {
+  static DateTime tryParseLocale(dateString, [String? pattern]) {
     return DateTime.parse(dateString).toLocal();
   }
 }
 
-String getFormatedDate(DateTime date, {bool localize = false, String pattern}) {
+String getFormatedDate(DateTime date, {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedDate(date, pattern: pattern, localize: localize);
 }
 
 String getFormattedTime(DateTime date,
-    {bool localize = false, String pattern}) {
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormattedTime(date,
       pattern: pattern, localize: localize);
 }
 
 String getFormatedDateAndTimeFromString(String dateString,
-    {bool localize = false, String pattern}) {
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedDateAndTimeFromString(dateString,
       pattern: pattern, localize: localize);
 }
 
 String getFormatedDateFromString(String dateString,
-    {bool localize = false, String pattern}) {
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedDateFromString(dateString,
       pattern: pattern, localize: localize);
 }
 
 String getFormatedTimeFromString(String dateString,
-    {bool localize = false, String pattern}) {
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedTimeFromString(dateString,
       pattern: pattern, localize: localize);
 }
 
-DateTime tryParseLocale(dateString, {bool localize = false, String pattern}) {
+DateTime tryParseLocale(dateString, {bool localize = false, String? pattern}) {
   return DateHelper.tryParseLocale(dateString, pattern);
 }
 
 extension dateExt on DateTime {
-  String getFormatedDate({bool localize = false, String pattern}) {
+  String getFormatedDate({bool localize = false, String? pattern}) {
     return DateHelper.getFormatedDate(this,
         pattern: pattern, localize: localize);
   }
 
-  String getFormattedTime({bool localize = false, String pattern}) {
+  String getFormattedTime({bool localize = false, String? pattern}) {
     return DateHelper.getFormattedTime(this,
         pattern: pattern, localize: localize);
   }
@@ -130,22 +130,22 @@ extension dateExt on DateTime {
 
 extension stringDateExt on String {
   String getFormatedDateAndTimeFromString(
-      {bool localize = false, String pattern}) {
+      {bool localize = false, String? pattern}) {
     return DateHelper.getFormatedDateAndTimeFromString(this,
         pattern: pattern, localize: localize);
   }
 
-  String getFormatedDateFromString({bool localize = false, String pattern}) {
+  String getFormatedDateFromString({bool localize = false, String? pattern}) {
     return DateHelper.getFormatedDateFromString(this,
         pattern: pattern, localize: localize);
   }
 
-  String getFormatedTimeFromString({bool localize = false, String pattern}) {
+  String getFormatedTimeFromString({bool localize = false, String? pattern}) {
     return DateHelper.getFormatedTimeFromString(this,
         pattern: pattern, localize: localize);
   }
 
-  DateTime tryParseLocale({bool localize = false, String pattern}) {
+  DateTime tryParseLocale({bool localize = false, String? pattern}) {
     return DateHelper.tryParseLocale(this, pattern);
   }
 }

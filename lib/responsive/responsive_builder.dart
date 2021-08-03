@@ -4,9 +4,9 @@ import 'package:helper_widgets/responsive/device_size_info.dart';
 export 'package:helper_widgets/responsive/device_size_info.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
-  ResponsiveBuilder({@required this.builder, this.key});
-  Key key;
-  final Widget Function(
+  ResponsiveBuilder({required this.builder, this.key});
+  Key? key;
+  final Widget? Function(
           BuildContext context, DeviceSizeInformation deviceSizeInformation)
       builder;
   @override
@@ -16,7 +16,7 @@ class ResponsiveBuilder extends StatelessWidget {
         builder: (context, constraint) {
           DeviceSizeInformation deviceSizeInfo =
               DeviceSizeInformation(context, constraint: constraint);
-          return builder(context, deviceSizeInfo);
+          return builder(context, deviceSizeInfo)!;
         });
   }
 }

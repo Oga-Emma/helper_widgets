@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:helper_widgets/responsive/responsive_builder.dart';
 
 class ResponsiveWidget extends StatelessWidget {
-  ResponsiveWidget({@required this.sm, this.md, this.lg, this.xl});
+  ResponsiveWidget({required this.sm, this.md, this.lg, this.xl});
   final Widget sm;
-  final Widget md;
-  final Widget lg;
-  final Widget xl;
+  final Widget? md;
+  final Widget? lg;
+  final Widget? xl;
 
   @override
   Widget build(BuildContext context) {

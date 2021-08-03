@@ -1,21 +1,20 @@
 name: helper_widgets
 description: Collection of common helper widgets
-version: 0.0.1
+version: 2.0.0
 author: sevenapps
 homepage: https://www.sevenapps.com
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  flutter_spinkit:
-  intl:
-  image_picker:
-  bot_toast:
-  flutter_svg:
+  flutter_spinkit: ^5.0.0
+  intl: ^0.17.0
+  image_picker: ^0.8.2
+#  flutter_svg: ^0.22.0
 #  flutter_money_formatter:
 
 dev_dependencies:

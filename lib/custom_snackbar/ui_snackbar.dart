@@ -27,7 +27,7 @@ abstract class UISnackBarProvider {
     scaffoldKey.currentState?.hideCurrentSnackBar();
   }
 
-  void showLoadingSnackBar(BuildContext context, [Widget content]) {
+  void showLoadingSnackBar(BuildContext context, [Widget? content]) {
     closeLoadingSnackBar();
     scaffoldKey.currentState?.showSnackBar(
       UILoadingSnackBar(

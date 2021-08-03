@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 class StringUtils {
   static const naira = nairaSign;
 
-  static double parseMoney(var money) {
+  static double? parseMoney(var money) {
     if (money == null) {
       return money;
     }
@@ -14,7 +14,7 @@ class StringUtils {
     return double.tryParse("$money");
   }
 
-  static int parseInt(var money) {
+  static int? parseInt(var money) {
     if (money == null) {
       return money;
     }
@@ -67,7 +67,7 @@ class StringUtils {
 //    return "₦${formatter.format(amount)}.00";
   }
 
-  static String getInitials(String name) {
+  static String? getInitials(String name) {
     try {
       var initial;
       var split = "$name".trim().split(' ');
@@ -100,7 +100,7 @@ class StringUtils {
     }
   }
 
-  static isNotEmpty(String text) {
+  static isNotEmpty(String? text) {
     return text != null && text.isNotEmpty;
   }
 
@@ -119,7 +119,7 @@ class StringUtils {
 
 const nairaSign = '₦';
 
-double parseMoney(var money) {
+double? parseMoney(var money) {
   if (money == null) {
     return money;
   }
@@ -130,7 +130,7 @@ double parseMoney(var money) {
   return double.tryParse("$money");
 }
 
-int parseInt(var money) {
+int? parseInt(var money) {
   if (money == null) {
     return money;
   }
@@ -182,7 +182,7 @@ String formatMoney(var amount, {bool showDecimal = true, var currency = '₦'}) 
 }
 
 extension strUtilExt on String {
-  String getInitials() {
+  String? getInitials() {
     return StringUtils.getInitials(this);
   }
 

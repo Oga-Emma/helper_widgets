@@ -5,15 +5,15 @@ import 'empty_space.dart';
 
 class LoadingSpinner extends StatelessWidget {
   const LoadingSpinner({
-    Key key,
+    Key? key,
     this.color,
     this.size,
     this.showText = false,
     this.text = "Loading...",
   }) : super(key: key);
 
-  final Color color;
-  final double size;
+  final Color? color;
+  final double? size;
   final bool showText;
   final String text;
 
