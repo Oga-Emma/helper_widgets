@@ -104,11 +104,11 @@ class StringUtils {
     return text != null && text.isNotEmpty;
   }
 
-  static isEmpty(String text) {
+  static isEmpty(String? text) {
     return !isNotEmpty(text);
   }
 
-  static isEqualsIgnoreCase(String t1, String t2) {
+  static isEqualsIgnoreCase(String? t1, String? t2) {
     if (t1 == null || t2 == null || t1.isEmpty || t2.isEmpty) {
       return false;
     }
