@@ -154,7 +154,7 @@ class Validators {
     String? error,
   ]) {
     return (String value) {
-      if (field?.value != value) {
+      if (field.value != value) {
         return error ?? 'Values don\'t match';
       }
       return null;
