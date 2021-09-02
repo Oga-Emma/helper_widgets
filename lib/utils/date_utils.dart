@@ -18,7 +18,7 @@ class DateHelper {
       return "Today";
     } else if (date.year == now.year &&
         date.month == now.month &&
-        (date.day == now.day + 1)) {
+        (date.day == now.day - 1)) {
       return "Yesterday";
     }
     if (StringUtils.isNotEmpty(pattern))
