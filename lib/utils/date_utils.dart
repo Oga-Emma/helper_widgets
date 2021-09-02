@@ -9,9 +9,14 @@ class DateHelper {
     if (localize) {
       date = date.toLocal();
     }
-    if (date.day == DateTime.now().day) {
+    var now = DateTime.now();
+    if (date.year == now.year &&
+        date.month == now.month &&
+        date.day == now.day) {
       return "Today";
-    } else if (date.day == (DateTime.now().day - 1)) {
+    } else if (date.year == now.year &&
+        date.month == now.month &&
+        date.day == (now.day - 1)) {
       return "Yesterday";
     }
     if (StringUtils.isNotEmpty(pattern))
@@ -84,7 +89,8 @@ class DateHelper {
   }
 }
 
-String getFormatedDate(DateTime date, {bool localize = false, String? pattern}) {
+String getFormatedDate(DateTime date,
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedDate(date, pattern: pattern, localize: localize);
 }
 
