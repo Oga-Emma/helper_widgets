@@ -5,7 +5,7 @@ import 'empty_space.dart';
 
 class ErrorHandlerWidget extends StatelessWidget {
   ErrorHandlerWidget(
-      {this.message = "Faild to load", this.color, this.onPress});
+      {this.message = "Failed to load", this.color, this.onPress});
   String message;
   Color? color;
   Function()? onPress;

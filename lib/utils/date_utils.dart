@@ -9,10 +9,12 @@ class DateHelper {
     if (localize) {
       date = date.toLocal();
     }
-    if (date.day == DateTime.now().day) {
-      return "Today";
-    } else if (date.day == (DateTime.now().day - 1)) {
-      return "Yesterday";
+
+    var now = DateTime.now();
+    if (date.month == now.month && date.year == now.year) {
+      if (date.day == now.day) return "Today";
+
+      if (date.day == now.day - 1) return "Yesterday";
     }
     if (StringUtils.isNotEmpty(pattern))
       return DateFormat(pattern).format(date);
@@ -84,7 +86,8 @@ class DateHelper {
   }
 }
 
-String getFormatedDate(DateTime date, {bool localize = false, String? pattern}) {
+String getFormatedDate(DateTime date,
+    {bool localize = false, String? pattern}) {
   return DateHelper.getFormatedDate(date, pattern: pattern, localize: localize);
 }
 
