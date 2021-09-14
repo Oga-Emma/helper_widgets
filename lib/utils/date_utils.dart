@@ -11,10 +11,12 @@ class DateHelper {
     }
 
     var now = DateTime.now();
-    if (date.month == now.month && date.year == now.year) {
-      if (date.day == now.day) return "Today";
+    if (date.month == now.month &&
+        date.year == now.year &&
+        date.day == now.day) {
+      return "Today";
 
-      if (date.day == now.day - 1) return "Yesterday";
+      // if (date.day == now.day - 1) return "Yesterday";
     }
     if (StringUtils.isNotEmpty(pattern))
       return DateFormat(pattern).format(date);
